@@ -14,7 +14,7 @@ def callback(data):
 
 def cmd_vel_publisher():
     rospy.init_node('cmd_vel_publisher', anonymous=True)
-    rospy.Subscriber('cmd_vel', Float32, callback)
+    rospy.Subscriber('cmd_vel_approved', Float32, callback)
     rospy.spin()
 
 if __name__ == '__main__':
