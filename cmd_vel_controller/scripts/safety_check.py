@@ -35,7 +35,7 @@ def cmd_vel_publisher(self_ID):
     	rospy.spin()
 
 if __name__ == '__main__':
-	with open('../../../specs.json') as data_file:    
+	with open('/home/pi/catkin_ws/specs.json') as data_file:    
     		data = json.load(data_file)
 		self_ID = data["ID"]
 	cmd_vel_publisher(self_ID)
