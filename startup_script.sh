@@ -1,3 +1,4 @@
+#! /bin/sh
 echo "Exporting ROS_MASTER_URI"
 export ROS_MASTER_URI=http://hugo-MacBookPro:11311/
 
