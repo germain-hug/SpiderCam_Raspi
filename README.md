@@ -1,2 +1,2 @@
 # SpiderCam_Raspi
-### Raspberry Pi Nodess
+### Raspberry Pi Nodes 2
