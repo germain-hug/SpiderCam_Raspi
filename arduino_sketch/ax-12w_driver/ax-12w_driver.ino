@@ -15,12 +15,13 @@ ros::NodeHandle nh;
 
 // Callback function
 void callback( const std_msgs::Float32& vel){
-  digitalWrite(13, HIGH-digitalRead(13));   // blink the led
+      // vel : Velocity Value (must be between 0 and 1023)
+      // dir : 0 for Clockwise | 1 for CounterClockwise
+      int dir = 0;
+      ax12SetRegister2(1, AX_GOAL_SPEED_L, (vel&0x03FF) | (dir<<10));
 }
 
 ros::Subscriber<std_msgs::Float32> sub("cmd_vel_approved", &callback );
-std_msgs::String str_msg;
-ros::Publisher chatter("chatter", &str_msg);
 
 void setup(){
 
@@ -32,6 +33,9 @@ void setup(){
     delay(33);
     ax12SetRegister2(1,AX_CCW_ANGLE_LIMIT_L,0);
     delay(33);
+  
+    // Speed at startup is zero
+    ax12SetRegister2(1, AX_GOAL_SPEED_L, 0);
 
     // Initialize ROS Subscriber
     nh.getHardware()->setBaud(1000000);
@@ -41,15 +45,7 @@ void setup(){
 }
 
 void loop(){
-   str_msg.data = "hello";
-   chatter.publish( &str_msg );
    nh.spinOnce();
-   delay(1000);
-    /*
-    ax12SetRegister2(1, AX_GOAL_SPEED_L, 0);
-    delay(80);
-    ax12SetRegister2(1, AX_GOAL_SPEED_L, 0);
-    delay(10000);
-    */
+   delay(1);
 }
 
