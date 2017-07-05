@@ -6,7 +6,9 @@
 #include <stdio.h>
 #include <termio.h>
 #include <unistd.h>
-#include <dynamixel.h>
+//#include <ax12.h>
+//#include <BioloidController.h>
+//#include <dynamixel.h>
 
 // Control table address
 #define P_CW_ANGLE_L 6
@@ -36,6 +38,13 @@ int main(int argc, char **argv)
        int index = 0;
        int Moving, PresentPos;
        int CommStatus;
+
+	//BioloidController bioloid = BioloidController(1000000);
+	// Set to Wheel Mode
+ 	//ax12SetRegister2(1,6,0);
+	//delay(33);
+	//ax12SetRegister2(1,8,0);
+	//delay(33);
 
 /*
   // Initialize AX-12W Connection

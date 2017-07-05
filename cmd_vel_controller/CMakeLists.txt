@@ -19,7 +19,7 @@ generate_messages(
 )
 
 catkin_package(CATKIN_DEPENDS message_runtime roscpp rospy std_msgs)
-include_directories(include ${catkin_INCLUDE_DIRS} /home/pi/catkin_ws/src/cmd_vel_controller/include/avr /home/pi/catkin_ws/src/cmd_vel_controller/include/dynamixel-avr)
+include_directories(include ${catkin_INCLUDE_DIRS} /home/pi/catkin_ws/src/cmd_vel_controller/include/avr /home/pi/catkin_ws/src/cmd_vel_controller/include/Bioloid)
 
 add_executable(ax12_controller src/ax12_controller.cpp)
 target_link_libraries(ax12_controller ${catkin_LIBRARIES})
