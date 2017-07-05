@@ -18,7 +18,6 @@ def callback(data, args):
 	pub = args[0]
 	self_ID = args[1]
 
-
 	# Retrieve 
 	if(self_ID==1):
 		this_vel = data.vel_1
@@ -30,7 +29,6 @@ def callback(data, args):
 		this_vel = data.vel_4
 
   	# TODO : SAFETY CHECKS (on position as well ?)	
-
 	print(this_vel)
 	pub.publish(this_vel)
 
