@@ -18,7 +18,7 @@ void callback( const std_msgs::Float32& vel){
       // vel : Velocity Value (must be between 0 and 1023)
       // dir : 0 for Clockwise | 1 for CounterClockwise
       int dir = 0;
-      ax12SetRegister2(1, AX_GOAL_SPEED_L, (vel&0x03FF) | (dir<<10));
+      ax12SetRegister2(1, AX_GOAL_SPEED_L, (int(vel)&0x03FF) | (dir<<10));
 }
 
 ros::Subscriber<std_msgs::Float32> sub("cmd_vel_approved", &callback );
