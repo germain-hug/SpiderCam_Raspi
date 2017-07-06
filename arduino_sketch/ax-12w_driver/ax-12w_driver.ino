@@ -8,15 +8,12 @@ Generates motor velocity commands
 #include <ArduinoHardware.h>
 #include <ros.h>
 //#include <Esp8266Hardware.h>
-#include <geometry_msgs/Point32.h>
+#include <std_msgs/Float32.h>
 #include <std_msgs/String.h>
 
 // Dynamixel + Arbotix Driver
 #include <ax12.h>
 #include <BioloidController.h>
-
-// JSON Libraries
-// #include <ArduinoJson.h>
 
 // Motor Driver - Baud Rate 1Mbps
 BioloidController bioloid = BioloidController(1000000);
@@ -25,18 +22,20 @@ BioloidController bioloid = BioloidController(1000000);
 ros::NodeHandle nh;
 
 // Callback function
-void callback( const geometry_msgs::Point32& vel){
-      // ---- Message Description ----
-      // vel.x : Velocity Value (must be between 0 and 1023)
-      // vel.y : 0 for Clockwise | 1 for CounterClockwise
-      ax12SetRegister2(1, AX_GOAL_SPEED_L, (int(vel.x)&0x03FF) | (int(vel.y)<<10));    
+void callback( const std_msgs::Float32& vel){
+      // vel.data : Velocity Value (must be between 0 and 1023)
+      // dir : 0 for Clockwise | 1 for CounterClockwise
+      int dir = 0;
+      if(vel > 0) dir = 1;
+      
+      ax12SetRegister2(1, AX_GOAL_SPEED_L, (int(vel.data)&0x03FF) | (int(dir)<<10));    
       delay(33);
 
 }
 
 // Initialize Subscriber
 String topic_in = String("cmd_vel_approved_") + String("1");
-ros::Subscriber<geometry_msgs::Point32> sub("cmd_vel_approved_1", &callback);
+ros::Subscriber<std_msgs::Float32> sub("cmd_vel_approved_1", &callback);
 
 void setup(){
 
