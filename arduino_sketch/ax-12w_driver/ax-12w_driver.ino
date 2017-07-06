@@ -7,11 +7,9 @@ Generates motor velocity commands
 
 #include <ArduinoHardware.h>
 #include <ros.h>
-#include <Esp8266Hardware.h>
+//#include <Esp8266Hardware.h>
 #include <geometry_msgs/Point32.h>
 #include <std_msgs/String.h>
-
-#include "FS.h"
 
 // Dynamixel + Arbotix Driver
 #include <ax12.h>
@@ -36,16 +34,8 @@ void callback( const geometry_msgs::Point32& vel){
 
 }
 
-// Read ID from JSON file
-char json[150];
-File dataFile = FileSystem.open("/home/pi/catkin_ws/specs.json", FILE_READ);
-dataFile.readBytes(json, size(json));
-dataFile.close(); 
-StaticJsonBuffer<JSON_OBJECT_SIZE(1)> jsonBuffer;
-JsonObject& specs = jsonBuffer.parseObject(json);
-
 // Initialize Subscriber
-String topic_in = "cmd_vel_approved_" + specs["ID"];
+String topic_in = "cmd_vel_approved_" + "1";
 ros::Subscriber<geometry_msgs::Point32> sub(topic_in, &callback );
 
 void setup(){
