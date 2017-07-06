@@ -27,9 +27,9 @@ ros::NodeHandle nh;
 // Callback function
 void callback( const geometry_msgs::Point32& vel){
       // ---- Message Description ----
-      // vel.data.x : Velocity Value (must be between 0 and 1023)
-      // vel.data.y : 0 for Clockwise | 1 for CounterClockwise
-      ax12SetRegister2(1, AX_GOAL_SPEED_L, (int(vel.data.x)&0x03FF) | (int(vel.data.y)<<10));    
+      // vel.x : Velocity Value (must be between 0 and 1023)
+      // vel.y : 0 for Clockwise | 1 for CounterClockwise
+      ax12SetRegister2(1, AX_GOAL_SPEED_L, (int(vel.x)&0x03FF) | (int(vel.y)<<10));    
       delay(33);
 
 }
