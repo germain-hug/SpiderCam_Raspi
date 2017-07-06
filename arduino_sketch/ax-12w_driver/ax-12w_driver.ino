@@ -36,7 +36,7 @@ void callback( const geometry_msgs::Point32& vel){
 
 // Initialize Subscriber
 String topic_in = String("cmd_vel_approved_") + String("1");
-ros::Subscriber<geometry_msgs::Point32> sub(topic_in, &callback );
+ros::Subscriber<geometry_msgs::Point32> sub("cmd_vel_approved_1", &callback);
 
 void setup(){
 
