@@ -2,7 +2,7 @@
 import rospy
 import json
 from cmd_vel_controller.msg import cmd_vel_motors
-from std_msgs.msg import Float32
+from geometry.msg import Point32
 
 """
 --------------------------------------------------
@@ -13,6 +13,7 @@ transmits velocity to cmd_vel_controller node
 
 def callback(data, args):
 	this_vel = 0
+	dir = 1.0
 	
 	# Retrieve corresponding velocity value
 	if(args[1]==1):
@@ -24,8 +25,11 @@ def callback(data, args):
 	elif(args[1]==4):
 		this_vel = data.vel_4
 	
-	# Publish velocity
-	args[0].publish(this_vel)
+	# --- Publish velocity ---
+	msg = Point32()
+	msg.x = this_vel
+	msg.y = dir
+	args[0].publish(msg)
 
 def cmd_vel_publisher(self_ID):
 	
