@@ -2,7 +2,7 @@
 import rospy
 import json
 from cmd_vel_controller.msg import cmd_vel_motors
-from std.msg import Float32
+from std_msgs.msg import Float32
 
 """
 --------------------------------------------------
