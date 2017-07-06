@@ -10,13 +10,14 @@ Generates motor velocity commands
 //#include <Esp8266Hardware.h>
 #include <geometry_msgs/Point32.h>
 #include <std_msgs/String.h>
+#include <String.h>
 
 // Dynamixel + Arbotix Driver
 #include <ax12.h>
 #include <BioloidController.h>
 
 // JSON Libraries
-#include <ArduinoJson.h>
+// #include <ArduinoJson.h>
 
 // Motor Driver - Baud Rate 1Mbps
 BioloidController bioloid = BioloidController(1000000);
