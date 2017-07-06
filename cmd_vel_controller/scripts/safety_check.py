@@ -31,8 +31,8 @@ def callback(data, args):
 def cmd_vel_publisher(self_ID):
 	
 	# Define publishing topic according to Motor ID
-	topic_out = 'cmd_vel_approved_' + self_ID;
 	rospy.init_node('safety_check', anonymous=True)
+	topic_out = 'cmd_vel_approved_' + str(self_ID);
 	pub = rospy.Publisher(topic_out, Float32, queue_size=10)
 	
 	# Subscribe to the master commands
