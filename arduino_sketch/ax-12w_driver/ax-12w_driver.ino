@@ -25,7 +25,7 @@ BioloidController bioloid = BioloidController(1000000);
 ros::NodeHandle nh;
 
 // Callback function
-void callback( const std_msgs::Point32& vel){
+void callback( const geometry_msgs::Point32& vel){
       // ---- Message Description ----
       // vel.data.x : Velocity Value (must be between 0 and 1023)
       // vel.data.y : 0 for Clockwise | 1 for CounterClockwise
