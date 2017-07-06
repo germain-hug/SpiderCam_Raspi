@@ -10,7 +10,6 @@ Generates motor velocity commands
 //#include <Esp8266Hardware.h>
 #include <geometry_msgs/Point32.h>
 #include <std_msgs/String.h>
-#include <String.h>
 
 // Dynamixel + Arbotix Driver
 #include <ax12.h>
@@ -36,7 +35,7 @@ void callback( const geometry_msgs::Point32& vel){
 }
 
 // Initialize Subscriber
-String topic_in = "cmd_vel_approved_" + "1";
+String topic_in = String("cmd_vel_approved_") + String("1");
 ros::Subscriber<geometry_msgs::Point32> sub(topic_in, &callback );
 
 void setup(){
