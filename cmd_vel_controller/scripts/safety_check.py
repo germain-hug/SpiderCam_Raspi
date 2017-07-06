@@ -36,7 +36,7 @@ def cmd_vel_publisher(self_ID):
 	pub = rospy.Publisher(topic_out, Float32, queue_size=10)
 	
 	# Subscribe to the master commands
-    	rospy.Subscriber('cmd_vel_out', cmd_vel_motors, callback, (pub, self_ID))
+    	rospy.Subscriber('cmd_vel', cmd_vel_motors, callback, (pub, self_ID))
     	rospy.spin()
 
 if __name__ == '__main__':
