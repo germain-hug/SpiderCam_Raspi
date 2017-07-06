@@ -1,6 +1,8 @@
-#! /bin/sh
+c#! /bin/sh
 echo "Exporting ROS_MASTER_URI"
-export ROS_MASTER_URI=http://hugo-MacBookPro:11311/
+#export ROS_MASTER_URI=http://hugo-MacBookPro:11311/
+export ROS_MASTER_URI=http://172.20.10.2:11311
+export ROS_HOSTNAME=172.20.10.2
 
 echo "Git Pull from SpiderCam_Raspi"
 cd /home/pi/catkin_ws/src && git pull origin master
