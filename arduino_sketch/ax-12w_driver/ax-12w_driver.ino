@@ -16,8 +16,7 @@ Generates motor velocity commands
 #include <BioloidController.h>
 
 // JSON Libraries
-#include <json/value.h>
-#include <fstream>
+#include <ArduinoJson.h>
 
 // Motor Driver - Baud Rate 1Mbps
 BioloidController bioloid = BioloidController(1000000);
@@ -35,9 +34,15 @@ void callback( const std_msgs::Point32& vel){
 
 }
 
-++
-std::ifstream specs_file("/home/pi/catkin_ws/specs.json", std::ifstream::binary);
-specs_file >> specs;
+// Read ID from JSON file
+char json[150];
+File dataFile = FileSystem.open(filePath, FILE_READ);
+dataFile.readBytes(json, size(json));
+dataFile.close(); 
+StaticJsonBuffer<JSON_OBJECT_SIZE(1)> jsonBuffer;
+JsonObject& specs = jsonBuffer.parseObject(json);
+
+// Initialize Subscriber
 String topic_in = "cmd_vel_approved_" + specs["ID"];
 ros::Subscriber<std_msgs::Point32> sub(topic_in, &callback );
 
