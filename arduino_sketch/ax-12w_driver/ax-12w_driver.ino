@@ -36,7 +36,7 @@ void callback( const geometry_msgs::Point32& vel){
 
 // Read ID from JSON file
 char json[150];
-File dataFile = FileSystem.open(filePath, FILE_READ);
+File dataFile = FileSystem.open("/home/pi/catkin_ws/specs.json", FILE_READ);
 dataFile.readBytes(json, size(json));
 dataFile.close(); 
 StaticJsonBuffer<JSON_OBJECT_SIZE(1)> jsonBuffer;
