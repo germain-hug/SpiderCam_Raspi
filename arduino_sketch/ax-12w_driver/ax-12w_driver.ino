@@ -7,7 +7,7 @@ Generates motor velocity commands
 
 #include <ArduinoHardware.h>
 #include <ros.h>
-//#include <Esp8266Hardware.h>
+#include <Esp8266Hardware.h>
 #include <geometry_msgs/Point32.h>
 #include <std_msgs/String.h>
 
