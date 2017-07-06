@@ -44,7 +44,7 @@ JsonObject& specs = jsonBuffer.parseObject(json);
 
 // Initialize Subscriber
 String topic_in = "cmd_vel_approved_" + specs["ID"];
-ros::Subscriber<std_msgs::Point32> sub(topic_in, &callback );
+ros::Subscriber<geometry_msgs::Point32> sub(topic_in, &callback );
 
 void setup(){
 
