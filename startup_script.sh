@@ -4,6 +4,8 @@
 export ROS_MASTER_URI=http://hugo-MacBookPro:11311/
 #export ROS_MASTER_URI=http://172.20.10.2:11311
 #export ROS_HOSTNAME=172.20.10.2
+=======
+#nb : change /etc/environment as well 
 
 echo  "---------------------------------------"
 echo  "---- Git Pull from SpiderCam_Raspi ----"
