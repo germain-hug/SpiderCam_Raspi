@@ -26,7 +26,7 @@ def callback(data, args):
 		this_vel = data.vel_4
 	
 	# --- Publish velocity ---
-	args[0].publish(this_vel)
+	args[0].publish(this_vel) 
 
 def cmd_vel_publisher(self_ID):
 	
