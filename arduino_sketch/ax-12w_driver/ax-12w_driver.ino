@@ -10,6 +10,7 @@ Generates motor velocity commands
 //#include <Esp8266Hardware.h>
 #include <std_msgs/Float32.h>
 #include <std_msgs/String.h>
+#include <math.h>
 
 // Dynamixel + Arbotix Driver
 #include <ax12.h>
@@ -26,9 +27,9 @@ void callback( const std_msgs::Float32& vel){
       // vel.data : Velocity Value (must be between 0 and 1023)
       // dir : 0 for Clockwise | 1 for CounterClockwise
       int dir = 0;
-      if(vel.data < 0) {dir = 1; vel.data=-vel.data;}
+      if(vel.data < 0) {dir = 1;}
       
-      ax12SetRegister2(1, AX_GOAL_SPEED_L, (int(vel.data)&0x03FF) | (int(dir)<<10));    
+      ax12SetRegister2(1, AX_GOAL_SPEED_L, (int(abs(vel.data))&0x03FF) | (int(dir)<<10));    
       delay(33);
 
 }
