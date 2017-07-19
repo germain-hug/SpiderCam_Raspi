@@ -1,11 +1,8 @@
-#! /bin/env/sh
+#! /bin/sh
 
-#echo "---- Exporting ROS_MASTER_URI ----"
-#export ROS_MASTER_URI=http://hugo-MacBookPro:11311/
-
-source /opt/ros/kinetic/setup.bash
-source /home/pi/catkin_ws/devel/setup.bash
-export PATH=$PATH:/opt/arduino-1.8.1/
+#source /opt/ros/kinetic/setup.bash
+#source /home/pi/catkin_ws/devel/setup.bash
+#export PATH=$PATH:/opt/arduino-1.8.1/
 
 cd /home/pi/catkin_ws/src/
 export ROS_MASTER_URI=http://172.20.10.2:11311 # Master IP
