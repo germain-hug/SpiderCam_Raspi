@@ -7,12 +7,12 @@ export ROS_IP=172.20.10.5 #Slave IP
 =======
 #nb : change ~/.profile as well ! 
 
-echo  "---------------------------------------"
-echo  "---- Git Pull from SpiderCam_Raspi ----"
-echo  "---------------------------------------"
-echo " "
-cd /home/pi/catkin_ws/src && git pull origin master
-echo " "
+#echo  "---------------------------------------"
+#echo  "---- Git Pull from SpiderCam_Raspi ----"
+#echo  "---------------------------------------"
+#echo " "
+#cd /home/pi/catkin_ws/src && git pull origin master
+#echo " "
 echo "----------------------------------"
 echo "---- Uploading Arduino Sketch ----"
 echo "----------------------------------"
