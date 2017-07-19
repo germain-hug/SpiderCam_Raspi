@@ -39,8 +39,7 @@ void callback( const std_msgs::Float32& vel){
 }
 
 // Initialize Subscriber
-String topic_in = String("cmd_vel_approved_") + String("1");
-ros::Subscriber<std_msgs::Float32> sub("cmd_vel_approved_2", &callback);
+ros::Subscriber<std_msgs::Float32> sub("cmd_vel_approved_1", &callback);
 
 void setup(){
 
