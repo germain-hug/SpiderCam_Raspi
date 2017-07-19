@@ -16,12 +16,16 @@ export ROS_IP=172.20.10.5 #Slave IP
 #echo " "
 #cd /home/pi/catkin_ws/src && git pull origin master
 #echo " "
-echo "----------------------------------"
-echo "---- Uploading Arduino Sketch ----"
-echo "----------------------------------"
-echo " "
-cd /home/pi/catkin_ws/src/arduino_sketch && arduino --upload ax-12w_driver/ax-12w_driver.ino
-echo " "
+
+
+#echo "----------------------------------"
+#echo "---- Uploading Arduino Sketch ----"
+#echo "----------------------------------"
+#echo " "
+#cd /home/pi/catkin_ws/src/arduino_sketch && arduino --upload ax-12w_driver/ax-12w_driver.ino
+#echo " "
+
+
 echo "------------------------------"
 echo "---- Starting Safety Node ----"
 echo "------------------------------"
@@ -30,6 +34,8 @@ rosrun cmd_vel_controller safety_check.py &
 sleep 5
 echo " Done "
 echo " "
+
+
 echo "----------------------------"
 echo "---- Starting Rosserial ----"
 echo "----------------------------"
