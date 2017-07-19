@@ -27,19 +27,18 @@ void callback( const std_msgs::Float32& vel){
       // vel.data : Velocity Value (must be between 0 and 1023)
       // dir : 0 for Clockwise | 1 for CounterClockwise
       int dir = 0;
-      int vel = vel.data;
-      if(vel.data < 0) {dir = 1;}
-      if(vel.data !=0){
-            vel = 90 + vel.data*3;    
+      int new_vel = int(abs(vel.data));
+      if(vel.data < 0.0) {dir = 1;}
+      if(vel.data !=0.0){
+            new_vel = 90 + vel.data*3;    
       }
       
-      ax12SetRegister2(1, AX_GOAL_SPEED_L, (int(abs(vel.data))&0x03FF) | (int(dir)<<10));    
+      ax12SetRegister2(1, AX_GOAL_SPEED_L, (new_vel&0x03FF) | (int(dir)<<10));    
       delay(33);
 
 }
 
 // Initialize Subscriber
-String topic_in = String("cmd_vel_approved_") + String("1");
 ros::Subscriber<std_msgs::Float32> sub("cmd_vel_approved_2", &callback);
 
 void setup(){

@@ -5,7 +5,7 @@
 export ROS_MASTER_URI=http://172.20.10.2:11311 # Master IP
 export ROS_IP=172.20.10.5 #Slave IP
 =======
-#nb : change /etc/environment as well 
+#nb : change ~/.profile as well ! 
 
 echo  "---------------------------------------"
 echo  "---- Git Pull from SpiderCam_Raspi ----"
